@@ -1,0 +1,60 @@
+CREATE DATABASE IF NOT EXISTS lc_pharma;
+
+-- ------------------------------------
+
+DROP TABLE IF EXISTS `lc_pharma`.`versao`;
+CREATE TABLE  `lc_pharma`.`versao` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `versao` varchar(10) DEFAULT NULL,
+  `data_vigencia` date DEFAULT NULL,
+  `data_hora` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+
+-- ------------------------------------
+
+DROP TABLE IF EXISTS `lc_pharma`.`versaodet`;
+CREATE TABLE  `lc_pharma`.`versaodet` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `id_versao` int(10) unsigned DEFAULT NULL,
+  `codigo_barras` varchar(15) DEFAULT NULL,
+  `rmd_med` varchar(15) DEFAULT NULL,
+  `produto` longtext,
+  `descricao` longtext,
+  `principio_ativo` longtext,
+  `fabricante` longtext,
+  `categoria` longtext,
+  `tabela_med` varchar(10) DEFAULT NULL,
+  `tipo_med` varchar(10) DEFAULT NULL,
+  `icms_zero` varchar(10) DEFAULT NULL,
+  `precocusto_0` double(12,2) DEFAULT NULL,
+  `precocusto_12` double(12,2) DEFAULT NULL,
+  `precocusto_17` double(12,2) DEFAULT NULL,
+  `precocusto_17_5` double(12,2) DEFAULT NULL,
+  `precocusto_18` double(12,2) DEFAULT NULL,
+  `precocusto_20` double(12,2) DEFAULT NULL,
+  `precovenda_0` double(12,2) DEFAULT NULL,
+  `precovenda_12` double(12,2) DEFAULT NULL,
+  `precovenda_17` double(12,2) DEFAULT NULL,
+  `precovenda_17_5` double(12,2) DEFAULT NULL,
+  `precovenda_18` double(12,2) DEFAULT NULL,
+  `precovenda_20` double(12,2) DEFAULT NULL,
+  `precocusto_17_alc` double(12,2) DEFAULT NULL,
+  `precocusto_17_5_alc` double(12,2) DEFAULT NULL,
+  `precocusto_18_alc` double(12,2) DEFAULT NULL,
+  `precovenda_17_alc` double(12,2) DEFAULT NULL,
+  `precovenda_17_5_alc` double(12,2) DEFAULT NULL,
+  `precovenda_18_alc` double(12,2) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+
+-- ---------------------------------------
+
+DROP TABLE IF EXISTS `lc_pharma`.`fabricante`;
+CREATE TABLE  `lc_pharma`.`fabricante` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `nome` varchar(50) DEFAULT NULL,
+  `descricao` varchar(250) DEFAULT NULL,
+  `cnpj` varchar(25) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;

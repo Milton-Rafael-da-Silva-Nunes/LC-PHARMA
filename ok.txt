@@ -1,0 +1,84 @@
+CREATE TABLE  `lc_pharma`.`versao` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `versao` int(10) unsigned DEFAULT NULL,
+  `data_vigencia` date DEFAULT NULL,
+  `data_hora` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+
+CREATE TABLE  `lc_pharma`.`produtopreco` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `id_versao` int(10) unsigned DEFAULT NULL,
+  `id_produto` int(10) unsigned DEFAULT NULL,
+  `precocusto_sem_imposto` double(12,2) DEFAULT NULL,
+  `precocusto_0` double(12,2) DEFAULT NULL,
+  `precocusto_12` double(12,2) DEFAULT NULL,
+  `precocusto_17` double(12,2) DEFAULT NULL,
+  `precocusto_17_5` double(12,2) DEFAULT NULL,
+  `precocusto_18` double(12,2) DEFAULT NULL,
+  `precocusto_20` double(12,2) DEFAULT NULL,
+  `precocusto_17_alc` double(12,2) DEFAULT NULL,
+  `precocusto_17_5_alc` double(12,2) DEFAULT NULL,
+  `precocusto_18_alc` double(12,2) DEFAULT NULL,
+  `precovenda_0` double(12,2) DEFAULT NULL,
+  `precovenda_12` double(12,2) DEFAULT NULL,
+  `precovenda_17` double(12,2) DEFAULT NULL,
+  `precovenda_17_5` double(12,2) DEFAULT NULL,
+  `precovenda_18` double(12,2) DEFAULT NULL,
+  `precovenda_20` double(12,2) DEFAULT NULL,
+  `precovenda_17_alc` double(12,2) DEFAULT NULL,
+  `precovenda_17_5_alc` double(12,2) DEFAULT NULL,
+  `precovenda_18_alc` double(12,2) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=46067 DEFAULT CHARSET=latin1;
+
+
+CREATE TABLE  `lc_pharma`.`produto` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `id_fabricante` int(10) unsigned DEFAULT NULL,
+  `id_categoria` int(10) unsigned DEFAULT NULL,
+  `substancia` longtext,
+  `codigo_ggrem` varchar(30) DEFAULT NULL,
+  `registro` varchar(30) DEFAULT NULL,
+  `ean1` varchar(15) DEFAULT NULL,
+  `ean2` varchar(15) DEFAULT NULL,
+  `ean3` varchar(15) DEFAULT NULL,
+  `produto` longtext,
+  `apresentacao` longtext,
+  `apresentacao_reduzida` varchar(20) DEFAULT NULL,
+  `classe_terapeutica` longtext,
+  `regime_preco` varchar(45) DEFAULT NULL,
+  `restricao_hospitalar` varchar(3) DEFAULT NULL,
+  `cap` varchar(3) DEFAULT NULL,
+  `confaz_87` varchar(3) DEFAULT NULL,
+  `icms_0` varchar(3) DEFAULT NULL,
+  `lista` varchar(45) DEFAULT NULL,
+  `comercializacao_ano_anterior` varchar(3) DEFAULT NULL,
+  `tarja` varchar(120) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=23034 DEFAULT CHARSET=latin1;
+
+
+CREATE TABLE  `lc_pharma`.`fabricante` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `nome` varchar(80) DEFAULT NULL,
+  `descricao` varchar(250) DEFAULT NULL,
+  `cnpj` varchar(25) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=259 DEFAULT CHARSET=latin1;
+
+
+CREATE TABLE  `lc_pharma`.`classeterapeutica` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `codigo` varchar(45) DEFAULT NULL,
+  `descricao` varchar(150) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+CREATE TABLE  `lc_pharma`.`categoria` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `nome` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
